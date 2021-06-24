@@ -2,15 +2,31 @@ const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer(undefined, {
   host: '/',
-  port: '3001'
+  port: '9000'
 })
 let myVideoStream;
 const myVideo = document.createElement('video')
 const canvas = document.createElement('canvas')
 myVideo.id = "main-video";
 myVideo.muted = true
-myVideo.setAttribute("width", 320);
-myVideo.setAttribute("controls", true);
+
+function createImage(data) {
+  // var blob = new Blob(["Welcome to Websparrow.org."],
+  // { type: "text/plain;charset=utf-8" });
+  // saveAs(blob, "static.txt");
+
+
+  data.toBlob(function(blob) {
+      saveAs(blob, new Date()+".png");
+  });
+
+  // var file = new File(["Hello, world!"], "image.jpeg", {type: "image/jpeg;charset=utf-8"});
+  // saveAs(file);
+}
+
+
+// myVideo.setAttribute("width", 320);
+// myVideo.setAttribute("controls", true);
 const peers = {}
 myPeer.on('open', id =>{
   navigator.mediaDevices.getUserMedia({
@@ -33,10 +49,6 @@ myPeer.on('open', id =>{
     setTimeout(connectToNewUser,1000,userId,stream)
   })
 })
-
-
-
-
   
 })
 
