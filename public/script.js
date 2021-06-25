@@ -1,7 +1,7 @@
 const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer({
-  host: 'zoom-peer1.herokuapp.com',
+  host: 'wp-zoom.herokuapp.com',
    key: 'peerjs',
   secure : true,
   port: '9000',
