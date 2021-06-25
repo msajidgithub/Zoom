@@ -3,7 +3,8 @@ const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer(undefined, {
   host: 'zoom-peer1.herokuapp.com',
   secure : true,
-  port: '9000'
+  port: '9000',
+  path: "/"
 })
 let myVideoStream;
 const myVideo = document.createElement('video')
